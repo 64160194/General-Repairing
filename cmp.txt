@@ -1,0 +1,9 @@
+npm init -y
+npm install express
+npm -g install express
+npm install express-session
+npm install -g nodemon
+npm install mysql
+npm install ejs
+
+nodemon index.js
