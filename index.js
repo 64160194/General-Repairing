@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const port = 3000; // หรือพอร์ตอื่นๆ ที่คุณต้องการใช้
+const port = 3000;
 
 // ตั้งค่า EJS เป็น view engine
 app.set('view engine', 'ejs');
@@ -21,6 +21,10 @@ app.get('/user_home', (req, res) => {
 
 app.get('/add_request', (req, res) => {
   res.render('add_request');
+});
+
+app.get('/details_repairing', (req, res) => {
+  res.render('details_repairing');
 });
 
 app.listen(port, () => {

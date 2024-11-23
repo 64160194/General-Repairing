@@ -35,7 +35,12 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <h3 class="mt-4">ใบแจ้งซ่อม</h3>
+                <div class="d-flex justify-content-between align-items-center mt-4 mb-4">
+                    <h3 class="m-0">ใบแจ้งซ่อม</h3>
+                    <a href="/user_home" class="btn btn-outline-secondary btn-sm">
+                        <i class="fas fa-arrow-left me-1"></i>ย้อนกลับ
+                    </a>
+                </div>
 
                 <div class="row" style="margin-top: 1rem;">
                     <div class="col-xl-12">
@@ -44,17 +49,81 @@
                                 <i class="fas fa-tools me-1"></i>
                                 สำหรับผู้แจ้งซ่อม
                             </div>
-
                             <div class="card-body">
-                                <a href="/chart-details" class="btn btn-primary btn-sm">
-                                    <i class="fas fa-eye me-1"></i>ดูรายละเอียด
-                                </a>
-                                <canvas id="myAreaChart" width="100%" height="40"></canvas>
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="repairList"
+                                            class="form-label d-flex justify-content-between align-items-center">
+                                            รายการแจ้งซ่อม
+                                            <small class="text-muted">List of repairs</small>
+                                        </label>
+                                        <textarea class="form-control" id="repairList" rows="2"
+                                            placeholder="กรุณากรอกรายการที่ต้องการแจ้งซ่อม"></textarea>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="repairSymptoms"
+                                            class="form-label d-flex justify-content-between align-items-center">
+                                            อาการ/ลักษณะการชำรุด
+                                            <small class="text-muted">Nature of the defect</small>
+                                        </label>
+                                        <textarea class="form-control" id="repairSymptoms" rows="3"
+                                            placeholder="กรุณากรอกอาการหรือลักษณะการชำรุด"></textarea>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="Location"
+                                            class="form-label d-flex justify-content-between align-items-center">
+                                            สถานที่
+                                            <small class="text-muted">Location</small>
+                                        </label>
+                                        <textarea class="form-control" id="location" rows="1"
+                                            placeholder="กรุณากรอกสถานที่"></textarea>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label d-flex justify-content-between align-items-center">
+                                            ประเภทการซ่อม
+                                            <small class="text-muted">Repair Type</small>
+                                        </label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="repairType" id="facility" value="facility">
+                                            <label class="form-check-label" for="facility">
+                                                1. อาคารสถานที่ (Facility)
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="repairType" id="utility" value="utility">
+                                            <label class="form-check-label" for="utility">
+                                                2. สาธารณูปโภค (Utility)
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="repairType" id="electrical" value="electrical">
+                                            <label class="form-check-label" for="electrical">
+                                                3. ระบบไฟฟ้า (Electrical System)
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="repairType" id="other" value="other">
+                                            <label class="form-check-label" for="other">
+                                                4. อื่น ๆ (Other)
+                                            </label>
+                                        </div>
+                                        <div id="otherRepairTypeInput" class="mt-2" style="display: none;">
+                                            <input type="text" class="form-control" id="otherRepairTypeText" placeholder="กรุณาระบุประเภทการซ่อม">
+                                        </div>
+                                    </div>
+
+                                </form>
+                                <hr>
+                                <div class="d-flex justify-content-end">
+                                    <button type="submit" class="btn btn-primary">ส่งคำขอ</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </main>
     </div>
@@ -62,12 +131,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-    <script src="assets/demo/chart-area-demo.js"></script>
-    <script src="assets/demo/chart-bar-demo.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
-        crossorigin="anonymous"></script>
-    <script src="js/datatables-simple-demo.js"></script>
+    <script src="js/add_request.js"></script>
+
 </body>
 
 </html>
