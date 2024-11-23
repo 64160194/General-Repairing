@@ -15,6 +15,14 @@ app.get('/', (req, res) => {
   res.render('login');
 });
 
+app.get('/user_home', (req, res) => {
+  res.render('user_home');
+});
+
+app.get('/add_request', (req, res) => {
+  res.render('add_request');
+});
+
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
