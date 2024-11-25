@@ -38,18 +38,18 @@ app.get('/', (req, res) => {
   res.render('login');
 });
 
-app.get('/home_user', checkAuth, (req, res) => {
-  res.render('home_user', { user: req.session.user });
+app.get('/user_home', checkAuth, (req, res) => {
+  res.render('user_home', { user: req.session.user });
 });
 
-app.get('/home_admin', (req, res) => {
-  res.render('home_admin');
+app.get('/request_admin', (req, res) => {
+  res.render('request_admin');
 });
-app.get('/home_mgruser', (req, res) => {
-  res.render('home_mgruser');
+app.get('/request_mgruser', (req, res) => {
+  res.render('request_mgruser');
 });
-app.get('/home_mgradmin', (req, res) => {
-  res.render('home_mgradmin');
+app.get('/request_mgradmin', (req, res) => {
+  res.render('request_mgradmin');
 });
 
 app.listen(port, () => {
