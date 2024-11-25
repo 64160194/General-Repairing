@@ -10,7 +10,11 @@ class AuthController {
         req.session.user = {
           id: user.u_id,
           username: user.u_name,
-          role: user.u_role
+          role: user.u_role,
+          dept_id: user.dept_id,
+          dept_name: user.dept_name,
+          f_name: user.f_name,
+          l_name: user.l_name
         };
 
         let redirect;

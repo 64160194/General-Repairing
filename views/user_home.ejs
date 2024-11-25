@@ -34,6 +34,17 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
+                <div class="mt-4 mb-4">
+                    <% if (user) { %>
+                        <p class="text-muted">
+                            Hi, <%= user.f_name%>
+                            <%= user.l_name ? user.l_name : '' %>
+                            <%= user.dept_name ? '| แผนก ' + user.dept_name : '' %>
+                        </p>
+                    <% } else { %>
+                        <h2 class="text-muted">ไม่พบข้อมูลผู้ใช้</h2>
+                    <% } %>
+                </div>
                 <h1 class="mt-4">แจ้งซ่อมทั่วไป</h1>
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item active">สำหรับงานโครงสร้างอาคาร สถานที่ สิ่งอำนวยความสะดวกและสาธารณูปโภค

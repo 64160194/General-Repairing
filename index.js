@@ -22,7 +22,7 @@ app.use(session({
   secret: 'your-secret-key',
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: false } // ตั้งเป็น true ถ้าใช้ HTTPS
+  cookie: { secure: false }
 }));
 
 // Routes
@@ -54,22 +54,18 @@ const checkRole = (role) => {
   };
 };
 
-// แก้ไข route สำหรับ user_home
 app.get('/user_home', checkAuth, checkRole('user'), (req, res) => {
   res.render('user_home', { user: req.session.user });
 });
 
-// แก้ไข route สำหรับ request_admin
 app.get('/request_admin', checkAuth, checkRole('admin'), (req, res) => {
   res.render('request_admin');
 });
 
-// แก้ไข route สำหรับ request_mgruser
 app.get('/request_mgruser', checkAuth, checkRole('manager_user'), (req, res) => {
   res.render('request_mgruser');
 });
 
-// แก้ไข route สำหรับ request_mgradmin
 app.get('/request_mgradmin', checkAuth, checkRole('manager_hrga'), (req, res) => {
   res.render('request_mgradmin');
 });
